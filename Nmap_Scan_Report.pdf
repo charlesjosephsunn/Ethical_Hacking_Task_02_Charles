@@ -1,0 +1,62 @@
+ Nmap Scan Report
+
+## Nmap Scan Report
+
+### Scan Date
+
+28 June 2026
+
+### Target System
+
+Localhost (127.0.0.1)
+
+### Commands Used
+
+```cmd
+nmap --version
+nmap localhost
+nmap -sV localhost
+nmap -O localhost
+```
+
+### Open Ports
+
+| Port     | State | Service            |
+| -------- | ----- | ------------------ |
+| 135/tcp  | Open  | msrpc              |
+| 445/tcp  | Open  | microsoft-ds (SMB) |
+| 3306/tcp | Open  | MySQL              |
+
+### Running Services
+
+| Port | Service            | Description                                              |
+| ---- | ------------------ | -------------------------------------------------------- |
+| 135  | MSRPC              | Microsoft Remote Procedure Call service used by Windows. |
+| 445  | Microsoft-DS (SMB) | Provides file and printer sharing over the network.      |
+| 3306 | MySQL              | Database service used by MySQL Server.                   |
+
+### Operating System
+
+The operating system detection scan identified the system as **Microsoft Windows**. (If your `nmap -O localhost` command produced a different result, replace this with the exact output.)
+
+### Observations
+
+* The scan detected three open TCP ports.
+* Windows networking services are running on ports 135 and 445.
+* A MySQL database service is active on port 3306.
+* Only services that are required should remain enabled to reduce the attack surface.
+* Regular scanning helps identify exposed services and verify that unnecessary ports are closed.
+
+### Recommendations
+
+1. Disable services that are no longer required.
+2. Keep Windows and all applications updated with the latest security patches.
+3. Use a firewall to restrict access to open ports.
+4. Secure MySQL with a strong password and limit remote access if it is not needed.
+5. Monitor open ports regularly using Nmap or similar security tools.
+6. Disable SMB if file sharing is not required.
+7. Use antivirus and endpoint protection software to help detect malicious activity.
+
+## Conclusion
+
+This scanning exercise helped me understand how Nmap can be used to discover open ports, identify running services, and detect the operating system of a target machine. By scanning my local computer, I found three open ports: 135 for MSRPC, 445 for Microsoft-DS (SMB), and 3306 for MySQL. I learned that each open port represents a service that could become a security risk if it is not properly configured or updated. Service version detection provides additional information about the software running on the system, while operating system detection helps identify the target environment for security assessment. This activity also showed the importance of reducing the attack surface by disabling unnecessary services, applying security updates, and protecting systems with firewalls and strong authentication. Overall, the scanning phase demonstrated how reconnaissance and network scanning are essential steps in ethical hacking because they provide valuable information that can be used to assess security and identify potential vulnerabilities before they can be exploited.
